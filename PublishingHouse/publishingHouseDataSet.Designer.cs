@@ -1595,7 +1595,7 @@ namespace PublishingHouse {
             
             private global::System.Data.DataColumn columnid_Reviewer;
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columnNameReviewer;
             
             private global::System.Data.DataColumn columnSurname;
             
@@ -1650,9 +1650,9 @@ namespace PublishingHouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn NameReviewerColumn {
                 get {
-                    return this.columnName;
+                    return this.columnNameReviewer;
                 }
             }
             
@@ -1733,11 +1733,11 @@ namespace PublishingHouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ReviewerRow AddReviewerRow(string Name, string Surname, string Middle_Name, System.DateTime Birthdate, int Number_Of_Reviews, double Rating) {
+            public ReviewerRow AddReviewerRow(string NameReviewer, string Surname, string Middle_Name, System.DateTime Birthdate, int Number_Of_Reviews, double Rating) {
                 ReviewerRow rowReviewerRow = ((ReviewerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Name,
+                        NameReviewer,
                         Surname,
                         Middle_Name,
                         Birthdate,
@@ -1773,7 +1773,7 @@ namespace PublishingHouse {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnid_Reviewer = base.Columns["id_Reviewer"];
-                this.columnName = base.Columns["Name"];
+                this.columnNameReviewer = base.Columns["NameReviewer"];
                 this.columnSurname = base.Columns["Surname"];
                 this.columnMiddle_Name = base.Columns["Middle_Name"];
                 this.columnBirthdate = base.Columns["Birthdate"];
@@ -1786,8 +1786,8 @@ namespace PublishingHouse {
             private void InitClass() {
                 this.columnid_Reviewer = new global::System.Data.DataColumn("id_Reviewer", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_Reviewer);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
+                this.columnNameReviewer = new global::System.Data.DataColumn("NameReviewer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNameReviewer);
                 this.columnSurname = new global::System.Data.DataColumn("Surname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSurname);
                 this.columnMiddle_Name = new global::System.Data.DataColumn("Middle_Name", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1806,8 +1806,8 @@ namespace PublishingHouse {
                 this.columnid_Reviewer.AllowDBNull = false;
                 this.columnid_Reviewer.ReadOnly = true;
                 this.columnid_Reviewer.Unique = true;
-                this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 255;
+                this.columnNameReviewer.AllowDBNull = false;
+                this.columnNameReviewer.MaxLength = 255;
                 this.columnSurname.AllowDBNull = false;
                 this.columnSurname.MaxLength = 255;
                 this.columnMiddle_Name.AllowDBNull = false;
@@ -1950,7 +1950,7 @@ namespace PublishingHouse {
             
             private global::System.Data.DataColumn columnid_Soauthor;
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columnNameSoAuthor;
             
             private global::System.Data.DataColumn columnSuname_SoAuthor;
             
@@ -2003,9 +2003,9 @@ namespace PublishingHouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn NameSoAuthorColumn {
                 get {
-                    return this.columnName;
+                    return this.columnNameSoAuthor;
                 }
             }
             
@@ -2078,11 +2078,11 @@ namespace PublishingHouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SoAuthorRow AddSoAuthorRow(string Name, string Suname_SoAuthor, string Middle_Name_SoAuthor, System.DateTime Birthdate, string Phone_Number) {
+            public SoAuthorRow AddSoAuthorRow(string NameSoAuthor, string Suname_SoAuthor, string Middle_Name_SoAuthor, System.DateTime Birthdate, string Phone_Number) {
                 SoAuthorRow rowSoAuthorRow = ((SoAuthorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Name,
+                        NameSoAuthor,
                         Suname_SoAuthor,
                         Middle_Name_SoAuthor,
                         Birthdate,
@@ -2117,7 +2117,7 @@ namespace PublishingHouse {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnid_Soauthor = base.Columns["id_Soauthor"];
-                this.columnName = base.Columns["Name"];
+                this.columnNameSoAuthor = base.Columns["NameSoAuthor"];
                 this.columnSuname_SoAuthor = base.Columns["Suname_SoAuthor"];
                 this.columnMiddle_Name_SoAuthor = base.Columns["Middle_Name_SoAuthor"];
                 this.columnBirthdate = base.Columns["Birthdate"];
@@ -2129,8 +2129,8 @@ namespace PublishingHouse {
             private void InitClass() {
                 this.columnid_Soauthor = new global::System.Data.DataColumn("id_Soauthor", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_Soauthor);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
+                this.columnNameSoAuthor = new global::System.Data.DataColumn("NameSoAuthor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNameSoAuthor);
                 this.columnSuname_SoAuthor = new global::System.Data.DataColumn("Suname_SoAuthor", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSuname_SoAuthor);
                 this.columnMiddle_Name_SoAuthor = new global::System.Data.DataColumn("Middle_Name_SoAuthor", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2147,8 +2147,8 @@ namespace PublishingHouse {
                 this.columnid_Soauthor.AllowDBNull = false;
                 this.columnid_Soauthor.ReadOnly = true;
                 this.columnid_Soauthor.Unique = true;
-                this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 255;
+                this.columnNameSoAuthor.AllowDBNull = false;
+                this.columnNameSoAuthor.MaxLength = 255;
                 this.columnSuname_SoAuthor.AllowDBNull = false;
                 this.columnSuname_SoAuthor.MaxLength = 255;
                 this.columnMiddle_Name_SoAuthor.AllowDBNull = false;
@@ -3207,12 +3207,12 @@ namespace PublishingHouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Name {
+            public string NameReviewer {
                 get {
-                    return ((string)(this[this.tableReviewer.NameColumn]));
+                    return ((string)(this[this.tableReviewer.NameReviewerColumn]));
                 }
                 set {
-                    this[this.tableReviewer.NameColumn] = value;
+                    this[this.tableReviewer.NameReviewerColumn] = value;
                 }
             }
             
@@ -3321,12 +3321,12 @@ namespace PublishingHouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Name {
+            public string NameSoAuthor {
                 get {
-                    return ((string)(this[this.tableSoAuthor.NameColumn]));
+                    return ((string)(this[this.tableSoAuthor.NameSoAuthorColumn]));
                 }
                 set {
-                    this[this.tableSoAuthor.NameColumn] = value;
+                    this[this.tableSoAuthor.NameSoAuthorColumn] = value;
                 }
             }
             
@@ -5050,7 +5050,7 @@ SELECT id_Review, id_Reviewer, Path_Review FROM Review WHERE (id_Review = @id_Re
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Reviewer";
             tableMapping.ColumnMappings.Add("id_Reviewer", "id_Reviewer");
-            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Name", "NameReviewer");
             tableMapping.ColumnMappings.Add("Surname", "Surname");
             tableMapping.ColumnMappings.Add("Middle_Name", "Middle_Name");
             tableMapping.ColumnMappings.Add("Birthdate", "Birthdate");
@@ -5452,7 +5452,7 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "SoAuthor";
             tableMapping.ColumnMappings.Add("id_Soauthor", "id_Soauthor");
-            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Name", "NameSoAuthor");
             tableMapping.ColumnMappings.Add("Suname_SoAuthor", "Suname_SoAuthor");
             tableMapping.ColumnMappings.Add("Middle_Name_SoAuthor", "Middle_Name_SoAuthor");
             tableMapping.ColumnMappings.Add("Birthdate", "Birthdate");

@@ -24,32 +24,23 @@ namespace PublishingHouse
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            //// TODO: данная строка кода позволяет загрузить данные в таблицу "publishingHouseDataSet.Publications". При необходимости она может быть перемещена или удалена.
-            //this.publicationsTableAdapter.Fill(this.publishingHouseDataSet.Publications);
-
             LoadForm();
         }
-        private void addData_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
         private void LoadForm()
         {
             try
             {
                 string query =
-                    "SELECT CONCAT(Author.Name_author, '',Author.Suname_Author, '', Author.Middle_name_author) AS FullName, " +
-                    "TypePublication.Publication_Type AS TypePublic, UDKPublications.UDK FROM Publications Author " +
+                    "SELECT id_P AS ID, CONCAT_WS(' ', Name_author, Suname_Author, Middle_name_author) AS Автор, " +
+                    "CONCAT_WS(' ', NameSoAuthor, Suname_SoAuthor, Middle_Name_SoAuthor) AS Соавтор, " +
+                    "CONCAT_WS(' ', NameReviewer, Surname, Middle_Name) AS Лицензёр," +
+                    "Name AS Название, Registration_Number AS Регистрационный_номер, Registration_Date_Number AS Дата_регистрации, Journal_Number AS Номер_журнала, Date_Issue_Journal AS Дата_Издания, " +
+                    "TypePublication.Publication_Type AS Тип_Публикации, UDKPublications.UDK FROM Publications " +
+                    "JOIN Author ON Publications.id_Author = Author.id_Author " +
+                    "JOIN SoAuthor ON Publications.id_Soauthor = SoAuthor.id_Soauthor " +
                     "JOIN TypePublication ON Publications.Id_Publication_Type = TypePublication.id_Type_publication " +
-                    "JOIN UDKPublications ON Publications.id_UDK_Publications = UDKPublications.id_UDK_Public ";
-
-                //SELECT CONCAT(Author.Name_author, '', Author.Suname_Author, '', Author.Middle_name_author) AS FullName,
-                //TypePublication.Publication_Type AS TypePublic, UDKPublications.UDK FROM Publications
-                //JOIN TypePublication ON Publications.Id_Publication_Type = TypePublication.id_Type_publication
-                //JOIN UDKPublications ON Publications.id_UDK_Publications = UDKPublications.id_UDK_Public
-
+                    "JOIN Reviewer ON Publications.id_Reviewer = Reviewer.id_Reviewer " +
+                    "JOIN UDKPublications ON Publications.id_UDK_Publications = UDKPublications.id_UDK_Public";
 
                 SqlCommand myCommand = new SqlCommand(query, connect.Connection());
 
@@ -64,31 +55,6 @@ namespace PublishingHouse
             {
                 Console.WriteLine(ex.ToString());
             }
-
-
-            //string connectionString = "Server = LAPTOP-1JBH7IQQ\\SQLEXPRESS; database = Beauty_Salon; Integrated Security=True;";
-            //SqlConnection connection = new SqlConnection(connectionString);
-            //connection.Open();
-
-            //string query1 = "SELECT concat(Master_name.Surname,' ' , Master_name.Name,' ', Master_name.Lastname) as name FROM Master_name";
-            //SqlCommand command1 = new SqlCommand(query1, connection);
-            //SqlDataReader reader1 = command1.ExecuteReader();
-            //while (reader1.Read())
-            //{
-            //    comboBox1.Items.Add(reader1["name"].ToString());
-            //}
-            //reader1.Close();
-
-            //string query2 = "SELECT Name as name1 FROM Type_of_Service";
-            //SqlCommand command2 = new SqlCommand(query2, connection);
-            //SqlDataReader reader2 = command2.ExecuteReader();
-            //while (reader2.Read())
-            //{
-            //    comboBox2.Items.Add(reader2["name1"].ToString());
-            //}
-            //reader2.Close();
-
-            //connection.Close();
         }
     }
 }

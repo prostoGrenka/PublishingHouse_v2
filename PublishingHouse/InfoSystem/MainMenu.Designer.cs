@@ -125,7 +125,6 @@
             this.addData.TabIndex = 2;
             this.addData.Text = "Добавить";
             this.addData.UseVisualStyleBackColor = true;
-            this.addData.Click += new System.EventHandler(this.addData_Click);
             // 
             // button3
             // 
