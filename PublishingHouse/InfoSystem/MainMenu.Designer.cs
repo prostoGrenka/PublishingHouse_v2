@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.publicationsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.publishingHouseDataSet = new PublishingHouse.publishingHouseDataSet();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ToolBox = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.addData = new System.Windows.Forms.Button();
@@ -60,7 +60,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.AddDdata = new System.Windows.Forms.GroupBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,9 +69,9 @@
             this.publicationsDataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.publicationsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.publishingHouseDataSet)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.ToolBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.AddDdata.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publicationsDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -86,18 +86,18 @@
             this.publishingHouseDataSet.DataSetName = "publishingHouseDataSet";
             this.publishingHouseDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // groupBox1
+            // ToolBox
             // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.addData);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 405);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(156, 233);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.ToolBox.Controls.Add(this.button4);
+            this.ToolBox.Controls.Add(this.button2);
+            this.ToolBox.Controls.Add(this.addData);
+            this.ToolBox.Controls.Add(this.button3);
+            this.ToolBox.Location = new System.Drawing.Point(12, 405);
+            this.ToolBox.Name = "ToolBox";
+            this.ToolBox.Size = new System.Drawing.Size(156, 233);
+            this.ToolBox.TabIndex = 1;
+            this.ToolBox.TabStop = false;
+            this.ToolBox.Text = "Меню инструментов";
             // 
             // button4
             // 
@@ -331,36 +331,36 @@
             this.label11.TabIndex = 31;
             this.label11.Text = "label11";
             // 
-            // groupBox2
+            // AddDdata
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox5);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox11);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.comboBox3);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.comboBox4);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.comboBox5);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(266, 405);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(467, 233);
-            this.groupBox2.TabIndex = 32;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
+            this.AddDdata.Controls.Add(this.textBox2);
+            this.AddDdata.Controls.Add(this.label11);
+            this.AddDdata.Controls.Add(this.textBox3);
+            this.AddDdata.Controls.Add(this.label10);
+            this.AddDdata.Controls.Add(this.textBox4);
+            this.AddDdata.Controls.Add(this.label9);
+            this.AddDdata.Controls.Add(this.textBox5);
+            this.AddDdata.Controls.Add(this.label8);
+            this.AddDdata.Controls.Add(this.textBox11);
+            this.AddDdata.Controls.Add(this.label7);
+            this.AddDdata.Controls.Add(this.textBox12);
+            this.AddDdata.Controls.Add(this.label6);
+            this.AddDdata.Controls.Add(this.comboBox1);
+            this.AddDdata.Controls.Add(this.label5);
+            this.AddDdata.Controls.Add(this.comboBox2);
+            this.AddDdata.Controls.Add(this.label4);
+            this.AddDdata.Controls.Add(this.comboBox3);
+            this.AddDdata.Controls.Add(this.label3);
+            this.AddDdata.Controls.Add(this.comboBox4);
+            this.AddDdata.Controls.Add(this.label2);
+            this.AddDdata.Controls.Add(this.comboBox5);
+            this.AddDdata.Controls.Add(this.label1);
+            this.AddDdata.Location = new System.Drawing.Point(266, 405);
+            this.AddDdata.Name = "AddDdata";
+            this.AddDdata.Size = new System.Drawing.Size(467, 233);
+            this.AddDdata.TabIndex = 32;
+            this.AddDdata.TabStop = false;
+            this.AddDdata.Text = "Данные:";
             // 
             // menuStrip1
             // 
@@ -416,10 +416,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(992, 658);
             this.Controls.Add(this.publicationsDataGridView);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.AddDdata);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.ToolBox);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.menuStrip2);
             this.Name = "MainMenu";
@@ -427,10 +427,10 @@
             this.Load += new System.EventHandler(this.MainMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.publicationsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.publishingHouseDataSet)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.ToolBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.AddDdata.ResumeLayout(false);
+            this.AddDdata.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.publicationsDataGridView)).EndInit();
@@ -440,7 +440,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox ToolBox;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button addData;
@@ -469,7 +469,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox AddDdata;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
