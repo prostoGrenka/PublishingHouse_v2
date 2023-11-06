@@ -11,47 +11,84 @@ using System.Data.SqlClient;
 using PublishingHouse.Connect;
 using System.Runtime.InteropServices;
 using PublishingHouse.Authorization;
-using PublishingHouse.InfoSystem;
+
 
 namespace PublishingHouse
 {
     public partial class MainMenu : Form
     {
         ConnectForDbMain connect = new ConnectForDbMain();
-
-        private DataTable table = null;
-
-        private SqlDataAdapter adapter = null;
-
         public MainMenu()
         {
             InitializeComponent();
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            FillingInData(dataGridView1);
+            //// TODO: данная строка кода позволяет загрузить данные в таблицу "publishingHouseDataSet.Publications". При необходимости она может быть перемещена или удалена.
+            //this.publicationsTableAdapter.Fill(this.publishingHouseDataSet.Publications);
+
+            LoadForm();
         }
-        private void FillingInData(DataGridView dwg)
-        {
-            dwg.Rows.Clear();
-            //SELECT item_id, item_name, sup_name FROM  product, suppliers1 where product.sup_id = suppliers1.sup_id", dbConnection
-            string queryString = $"SELECT * FROM Publications";
-
-            SqlConnection con = connect.Connection();
-
-            SqlDataAdapter adapter = new SqlDataAdapter(queryString, con);
-
-            table = new DataTable();
-
-            adapter.Fill(table);
-            dataGridView1.DataSource = table;
-        }
-
         private void addData_Click(object sender, EventArgs e)
         {
-            AddForm add = new AddForm();
-            add.Show();
-            this.Hide();
+
+
+        }
+
+        private void LoadForm()
+        {
+            try
+            {
+                string query =
+                    "SELECT CONCAT(Author.Name_author, '',Author.Suname_Author, '', Author.Middle_name_author) AS FullName, " +
+                    "TypePublication.Publication_Type AS TypePublic, UDKPublications.UDK FROM Publications Author " +
+                    "JOIN TypePublication ON Publications.Id_Publication_Type = TypePublication.id_Type_publication " +
+                    "JOIN UDKPublications ON Publications.id_UDK_Publications = UDKPublications.id_UDK_Public ";
+
+                //SELECT CONCAT(Author.Name_author, '', Author.Suname_Author, '', Author.Middle_name_author) AS FullName,
+                //TypePublication.Publication_Type AS TypePublic, UDKPublications.UDK FROM Publications
+                //JOIN TypePublication ON Publications.Id_Publication_Type = TypePublication.id_Type_publication
+                //JOIN UDKPublications ON Publications.id_UDK_Publications = UDKPublications.id_UDK_Public
+
+
+                SqlCommand myCommand = new SqlCommand(query, connect.Connection());
+
+                //"."."
+                SqlDataAdapter adpt = new SqlDataAdapter(query, connect.Connection());
+                DataTable table = new DataTable();
+
+                adpt.Fill(table);
+                publicationsDataGridView.DataSource = table;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+            //string connectionString = "Server = LAPTOP-1JBH7IQQ\\SQLEXPRESS; database = Beauty_Salon; Integrated Security=True;";
+            //SqlConnection connection = new SqlConnection(connectionString);
+            //connection.Open();
+
+            //string query1 = "SELECT concat(Master_name.Surname,' ' , Master_name.Name,' ', Master_name.Lastname) as name FROM Master_name";
+            //SqlCommand command1 = new SqlCommand(query1, connection);
+            //SqlDataReader reader1 = command1.ExecuteReader();
+            //while (reader1.Read())
+            //{
+            //    comboBox1.Items.Add(reader1["name"].ToString());
+            //}
+            //reader1.Close();
+
+            //string query2 = "SELECT Name as name1 FROM Type_of_Service";
+            //SqlCommand command2 = new SqlCommand(query2, connection);
+            //SqlDataReader reader2 = command2.ExecuteReader();
+            //while (reader2.Read())
+            //{
+            //    comboBox2.Items.Add(reader2["name1"].ToString());
+            //}
+            //reader2.Close();
+
+            //connection.Close();
         }
     }
 }
