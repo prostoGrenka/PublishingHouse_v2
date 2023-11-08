@@ -60,6 +60,12 @@
     </Compile>
     <Compile Include="Connect\ConnectForDbMain.cs" />
     <Compile Include="Connect\ConnectionDbForUser.cs" />
+    <Compile Include="InfoSystem\AddData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoSystem\AddData.Designer.cs">
+      <DependentUpon>AddData.cs</DependentUpon>
+    </Compile>
     <Compile Include="InfoSystem\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,9 +74,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="publishingHouseDataSet.cs">
-      <DependentUpon>publishingHouseDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="publishingHouseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Authorization\registration.resx">
       <DependentUpon>registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoSystem\AddData.resx">
+      <DependentUpon>AddData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InfoSystem\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

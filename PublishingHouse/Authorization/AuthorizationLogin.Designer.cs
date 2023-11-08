@@ -34,7 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.registration = new System.Windows.Forms.Button();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -93,15 +93,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "· Пароль";
             // 
-            // button1
+            // registration
             // 
-            this.button1.Location = new System.Drawing.Point(9, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(124, 43);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Зарегистрироваться";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.registration.Location = new System.Drawing.Point(9, 231);
+            this.registration.Name = "registration";
+            this.registration.Size = new System.Drawing.Size(124, 43);
+            this.registration.TabIndex = 5;
+            this.registration.Text = "Зарегистрироваться";
+            this.registration.UseVisualStyleBackColor = true;
+            this.registration.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonLogin
             // 
@@ -182,7 +182,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonLogin);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.registration);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -210,7 +210,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button registration;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;

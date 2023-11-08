@@ -2379,10 +2379,10 @@ namespace PublishingHouse {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public TypePublicationRow AddTypePublicationRow(string Publication_Type) {
+            public TypePublicationRow AddTypePublicationRow(int id_Type_publication, string Publication_Type) {
                 TypePublicationRow rowTypePublicationRow = ((TypePublicationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        id_Type_publication,
                         Publication_Type};
                 rowTypePublicationRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTypePublicationRow);
@@ -2426,11 +2426,7 @@ namespace PublishingHouse {
                 base.Columns.Add(this.columnPublication_Type);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_Type_publication}, true));
-                this.columnid_Type_publication.AutoIncrement = true;
-                this.columnid_Type_publication.AutoIncrementSeed = -1;
-                this.columnid_Type_publication.AutoIncrementStep = -1;
                 this.columnid_Type_publication.AllowDBNull = false;
-                this.columnid_Type_publication.ReadOnly = true;
                 this.columnid_Type_publication.Unique = true;
                 this.columnPublication_Type.AllowDBNull = false;
                 this.columnPublication_Type.MaxLength = 255;
@@ -5050,7 +5046,7 @@ SELECT id_Review, id_Reviewer, Path_Review FROM Review WHERE (id_Review = @id_Re
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Reviewer";
             tableMapping.ColumnMappings.Add("id_Reviewer", "id_Reviewer");
-            tableMapping.ColumnMappings.Add("Name", "NameReviewer");
+            tableMapping.ColumnMappings.Add("NameReviewer", "NameReviewer");
             tableMapping.ColumnMappings.Add("Surname", "Surname");
             tableMapping.ColumnMappings.Add("Middle_Name", "Middle_Name");
             tableMapping.ColumnMappings.Add("Birthdate", "Birthdate");
@@ -5059,10 +5055,10 @@ SELECT id_Review, id_Reviewer, Path_Review FROM Review WHERE (id_Review = @id_Re
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Reviewer] WHERE (([id_Reviewer] = @Original_id_Reviewer) AND ([Name] = @Original_Name) AND ([Surname] = @Original_Surname) AND ([Middle_Name] = @Original_Middle_Name) AND ([Birthdate] = @Original_Birthdate) AND ([Number_Of_Reviews] = @Original_Number_Of_Reviews) AND ([Rating] = @Original_Rating))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Reviewer] WHERE (([id_Reviewer] = @Original_id_Reviewer) AND ([NameReviewer] = @Original_NameReviewer) AND ([Surname] = @Original_Surname) AND ([Middle_Name] = @Original_Middle_Name) AND ([Birthdate] = @Original_Birthdate) AND ([Number_Of_Reviews] = @Original_Number_Of_Reviews) AND ([Rating] = @Original_Rating))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Reviewer", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Reviewer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NameReviewer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameReviewer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Middle_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Middle_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Birthdate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5070,10 +5066,10 @@ SELECT id_Review, id_Reviewer, Path_Review FROM Review WHERE (id_Review = @id_Re
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Rating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rating", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Reviewer] ([Name], [Surname], [Middle_Name], [Birthdate], [Number_Of_Reviews], [Rating]) VALUES (@Name, @Surname, @Middle_Name, @Birthdate, @Number_Of_Reviews, @Rating);
-SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Rating FROM Reviewer WHERE (id_Reviewer = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Reviewer] ([NameReviewer], [Surname], [Middle_Name], [Birthdate], [Number_Of_Reviews], [Rating]) VALUES (@NameReviewer, @Surname, @Middle_Name, @Birthdate, @Number_Of_Reviews, @Rating);
+SELECT id_Reviewer, NameReviewer, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Rating FROM Reviewer WHERE (id_Reviewer = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameReviewer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameReviewer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Middle_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Middle_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Birthdate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5081,17 +5077,17 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Reviewer] SET [Name] = @Name, [Surname] = @Surname, [Middle_Name] = @Middle_Name, [Birthdate] = @Birthdate, [Number_Of_Reviews] = @Number_Of_Reviews, [Rating] = @Rating WHERE (([id_Reviewer] = @Original_id_Reviewer) AND ([Name] = @Original_Name) AND ([Surname] = @Original_Surname) AND ([Middle_Name] = @Original_Middle_Name) AND ([Birthdate] = @Original_Birthdate) AND ([Number_Of_Reviews] = @Original_Number_Of_Reviews) AND ([Rating] = @Original_Rating));
-SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Rating FROM Reviewer WHERE (id_Reviewer = @id_Reviewer)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Reviewer] SET [NameReviewer] = @NameReviewer, [Surname] = @Surname, [Middle_Name] = @Middle_Name, [Birthdate] = @Birthdate, [Number_Of_Reviews] = @Number_Of_Reviews, [Rating] = @Rating WHERE (([id_Reviewer] = @Original_id_Reviewer) AND ([NameReviewer] = @Original_NameReviewer) AND ([Surname] = @Original_Surname) AND ([Middle_Name] = @Original_Middle_Name) AND ([Birthdate] = @Original_Birthdate) AND ([Number_Of_Reviews] = @Original_Number_Of_Reviews) AND ([Rating] = @Original_Rating));
+SELECT id_Reviewer, NameReviewer, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Rating FROM Reviewer WHERE (id_Reviewer = @id_Reviewer)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameReviewer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameReviewer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Middle_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Middle_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Birthdate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Number_Of_Reviews", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Number_Of_Reviews", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Rating", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Rating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Reviewer", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Reviewer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NameReviewer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameReviewer", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Middle_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Middle_Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Birthdate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5113,8 +5109,8 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Rat" +
-                "ing FROM dbo.Reviewer";
+            this._commandCollection[0].CommandText = "SELECT id_Reviewer, NameReviewer, Surname, Middle_Name, Birthdate, Number_Of_Revi" +
+                "ews, Rating FROM dbo.Reviewer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5175,13 +5171,13 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_Reviewer, string Original_Name, string Original_Surname, string Original_Middle_Name, System.DateTime Original_Birthdate, int Original_Number_Of_Reviews, double Original_Rating) {
+        public virtual int Delete(int Original_id_Reviewer, string Original_NameReviewer, string Original_Surname, string Original_Middle_Name, System.DateTime Original_Birthdate, int Original_Number_Of_Reviews, double Original_Rating) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_Reviewer));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+            if ((Original_NameReviewer == null)) {
+                throw new global::System.ArgumentNullException("Original_NameReviewer");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Name));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_NameReviewer));
             }
             if ((Original_Surname == null)) {
                 throw new global::System.ArgumentNullException("Original_Surname");
@@ -5218,12 +5214,12 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Surname, string Middle_Name, System.DateTime Birthdate, int Number_Of_Reviews, double Rating) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Insert(string NameReviewer, string Surname, string Middle_Name, System.DateTime Birthdate, int Number_Of_Reviews, double Rating) {
+            if ((NameReviewer == null)) {
+                throw new global::System.ArgumentNullException("NameReviewer");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NameReviewer));
             }
             if ((Surname == null)) {
                 throw new global::System.ArgumentNullException("Surname");
@@ -5260,12 +5256,12 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Surname, string Middle_Name, System.DateTime Birthdate, int Number_Of_Reviews, double Rating, int Original_id_Reviewer, string Original_Name, string Original_Surname, string Original_Middle_Name, System.DateTime Original_Birthdate, int Original_Number_Of_Reviews, double Original_Rating, int id_Reviewer) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Update(string NameReviewer, string Surname, string Middle_Name, System.DateTime Birthdate, int Number_Of_Reviews, double Rating, int Original_id_Reviewer, string Original_NameReviewer, string Original_Surname, string Original_Middle_Name, System.DateTime Original_Birthdate, int Original_Number_Of_Reviews, double Original_Rating, int id_Reviewer) {
+            if ((NameReviewer == null)) {
+                throw new global::System.ArgumentNullException("NameReviewer");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NameReviewer));
             }
             if ((Surname == null)) {
                 throw new global::System.ArgumentNullException("Surname");
@@ -5283,11 +5279,11 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
             this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Number_Of_Reviews));
             this.Adapter.UpdateCommand.Parameters[5].Value = ((double)(Rating));
             this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id_Reviewer));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+            if ((Original_NameReviewer == null)) {
+                throw new global::System.ArgumentNullException("Original_NameReviewer");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_NameReviewer));
             }
             if ((Original_Surname == null)) {
                 throw new global::System.ArgumentNullException("Original_Surname");
@@ -5325,8 +5321,8 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Surname, string Middle_Name, System.DateTime Birthdate, int Number_Of_Reviews, double Rating, int Original_id_Reviewer, string Original_Name, string Original_Surname, string Original_Middle_Name, System.DateTime Original_Birthdate, int Original_Number_Of_Reviews, double Original_Rating) {
-            return this.Update(Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Rating, Original_id_Reviewer, Original_Name, Original_Surname, Original_Middle_Name, Original_Birthdate, Original_Number_Of_Reviews, Original_Rating, Original_id_Reviewer);
+        public virtual int Update(string NameReviewer, string Surname, string Middle_Name, System.DateTime Birthdate, int Number_Of_Reviews, double Rating, int Original_id_Reviewer, string Original_NameReviewer, string Original_Surname, string Original_Middle_Name, System.DateTime Original_Birthdate, int Original_Number_Of_Reviews, double Original_Rating) {
+            return this.Update(NameReviewer, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Rating, Original_id_Reviewer, Original_NameReviewer, Original_Surname, Original_Middle_Name, Original_Birthdate, Original_Number_Of_Reviews, Original_Rating, Original_id_Reviewer);
         }
     }
     
@@ -5452,7 +5448,7 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "SoAuthor";
             tableMapping.ColumnMappings.Add("id_Soauthor", "id_Soauthor");
-            tableMapping.ColumnMappings.Add("Name", "NameSoAuthor");
+            tableMapping.ColumnMappings.Add("NameSoAuthor", "NameSoAuthor");
             tableMapping.ColumnMappings.Add("Suname_SoAuthor", "Suname_SoAuthor");
             tableMapping.ColumnMappings.Add("Middle_Name_SoAuthor", "Middle_Name_SoAuthor");
             tableMapping.ColumnMappings.Add("Birthdate", "Birthdate");
@@ -5460,36 +5456,36 @@ SELECT id_Reviewer, Name, Surname, Middle_Name, Birthdate, Number_Of_Reviews, Ra
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[SoAuthor] WHERE (([id_Soauthor] = @Original_id_Soauthor) AND ([Name] = @Original_Name) AND ([Suname_SoAuthor] = @Original_Suname_SoAuthor) AND ([Middle_Name_SoAuthor] = @Original_Middle_Name_SoAuthor) AND ([Birthdate] = @Original_Birthdate) AND ([Phone_Number] = @Original_Phone_Number))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[SoAuthor] WHERE (([id_Soauthor] = @Original_id_Soauthor) AND ([NameSoAuthor] = @Original_NameSoAuthor) AND ([Suname_SoAuthor] = @Original_Suname_SoAuthor) AND ([Middle_Name_SoAuthor] = @Original_Middle_Name_SoAuthor) AND ([Birthdate] = @Original_Birthdate) AND ([Phone_Number] = @Original_Phone_Number))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Soauthor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Soauthor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NameSoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameSoAuthor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Suname_SoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suname_SoAuthor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Middle_Name_SoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Middle_Name_SoAuthor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Birthdate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[SoAuthor] ([Name], [Suname_SoAuthor], [Middle_Name_SoAuthor], [Birthdate], [Phone_Number]) VALUES (@Name, @Suname_SoAuthor, @Middle_Name_SoAuthor, @Birthdate, @Phone_Number);
-SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phone_Number FROM SoAuthor WHERE (id_Soauthor = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[SoAuthor] ([NameSoAuthor], [Suname_SoAuthor], [Middle_Name_SoAuthor], [Birthdate], [Phone_Number]) VALUES (@NameSoAuthor, @Suname_SoAuthor, @Middle_Name_SoAuthor, @Birthdate, @Phone_Number);
+SELECT id_Soauthor, NameSoAuthor, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phone_Number FROM SoAuthor WHERE (id_Soauthor = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameSoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameSoAuthor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Suname_SoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suname_SoAuthor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Middle_Name_SoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Middle_Name_SoAuthor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Birthdate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SoAuthor] SET [Name] = @Name, [Suname_SoAuthor] = @Suname_SoAuthor, [Middle_Name_SoAuthor] = @Middle_Name_SoAuthor, [Birthdate] = @Birthdate, [Phone_Number] = @Phone_Number WHERE (([id_Soauthor] = @Original_id_Soauthor) AND ([Name] = @Original_Name) AND ([Suname_SoAuthor] = @Original_Suname_SoAuthor) AND ([Middle_Name_SoAuthor] = @Original_Middle_Name_SoAuthor) AND ([Birthdate] = @Original_Birthdate) AND ([Phone_Number] = @Original_Phone_Number));
-SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phone_Number FROM SoAuthor WHERE (id_Soauthor = @id_Soauthor)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[SoAuthor] SET [NameSoAuthor] = @NameSoAuthor, [Suname_SoAuthor] = @Suname_SoAuthor, [Middle_Name_SoAuthor] = @Middle_Name_SoAuthor, [Birthdate] = @Birthdate, [Phone_Number] = @Phone_Number WHERE (([id_Soauthor] = @Original_id_Soauthor) AND ([NameSoAuthor] = @Original_NameSoAuthor) AND ([Suname_SoAuthor] = @Original_Suname_SoAuthor) AND ([Middle_Name_SoAuthor] = @Original_Middle_Name_SoAuthor) AND ([Birthdate] = @Original_Birthdate) AND ([Phone_Number] = @Original_Phone_Number));
+SELECT id_Soauthor, NameSoAuthor, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phone_Number FROM SoAuthor WHERE (id_Soauthor = @id_Soauthor)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NameSoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameSoAuthor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Suname_SoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suname_SoAuthor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Middle_Name_SoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Middle_Name_SoAuthor", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Birthdate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthdate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Soauthor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Soauthor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NameSoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NameSoAuthor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Suname_SoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Suname_SoAuthor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Middle_Name_SoAuthor", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Middle_Name_SoAuthor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Birthdate", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birthdate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -5510,8 +5506,8 @@ SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phon
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phone" +
-                "_Number FROM dbo.SoAuthor";
+            this._commandCollection[0].CommandText = "SELECT id_Soauthor, NameSoAuthor, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdat" +
+                "e, Phone_Number FROM dbo.SoAuthor";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5572,13 +5568,13 @@ SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phon
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_Soauthor, string Original_Name, string Original_Suname_SoAuthor, string Original_Middle_Name_SoAuthor, System.DateTime Original_Birthdate, string Original_Phone_Number) {
+        public virtual int Delete(int Original_id_Soauthor, string Original_NameSoAuthor, string Original_Suname_SoAuthor, string Original_Middle_Name_SoAuthor, System.DateTime Original_Birthdate, string Original_Phone_Number) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_Soauthor));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+            if ((Original_NameSoAuthor == null)) {
+                throw new global::System.ArgumentNullException("Original_NameSoAuthor");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Name));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_NameSoAuthor));
             }
             if ((Original_Suname_SoAuthor == null)) {
                 throw new global::System.ArgumentNullException("Original_Suname_SoAuthor");
@@ -5619,12 +5615,12 @@ SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phon
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Suname_SoAuthor, string Middle_Name_SoAuthor, System.DateTime Birthdate, string Phone_Number) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Insert(string NameSoAuthor, string Suname_SoAuthor, string Middle_Name_SoAuthor, System.DateTime Birthdate, string Phone_Number) {
+            if ((NameSoAuthor == null)) {
+                throw new global::System.ArgumentNullException("NameSoAuthor");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(NameSoAuthor));
             }
             if ((Suname_SoAuthor == null)) {
                 throw new global::System.ArgumentNullException("Suname_SoAuthor");
@@ -5665,12 +5661,12 @@ SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phon
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Suname_SoAuthor, string Middle_Name_SoAuthor, System.DateTime Birthdate, string Phone_Number, int Original_id_Soauthor, string Original_Name, string Original_Suname_SoAuthor, string Original_Middle_Name_SoAuthor, System.DateTime Original_Birthdate, string Original_Phone_Number, int id_Soauthor) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Update(string NameSoAuthor, string Suname_SoAuthor, string Middle_Name_SoAuthor, System.DateTime Birthdate, string Phone_Number, int Original_id_Soauthor, string Original_NameSoAuthor, string Original_Suname_SoAuthor, string Original_Middle_Name_SoAuthor, System.DateTime Original_Birthdate, string Original_Phone_Number, int id_Soauthor) {
+            if ((NameSoAuthor == null)) {
+                throw new global::System.ArgumentNullException("NameSoAuthor");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(NameSoAuthor));
             }
             if ((Suname_SoAuthor == null)) {
                 throw new global::System.ArgumentNullException("Suname_SoAuthor");
@@ -5692,11 +5688,11 @@ SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phon
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Phone_Number));
             }
             this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_Soauthor));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+            if ((Original_NameSoAuthor == null)) {
+                throw new global::System.ArgumentNullException("Original_NameSoAuthor");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_NameSoAuthor));
             }
             if ((Original_Suname_SoAuthor == null)) {
                 throw new global::System.ArgumentNullException("Original_Suname_SoAuthor");
@@ -5738,8 +5734,8 @@ SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phon
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Suname_SoAuthor, string Middle_Name_SoAuthor, System.DateTime Birthdate, string Phone_Number, int Original_id_Soauthor, string Original_Name, string Original_Suname_SoAuthor, string Original_Middle_Name_SoAuthor, System.DateTime Original_Birthdate, string Original_Phone_Number) {
-            return this.Update(Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phone_Number, Original_id_Soauthor, Original_Name, Original_Suname_SoAuthor, Original_Middle_Name_SoAuthor, Original_Birthdate, Original_Phone_Number, Original_id_Soauthor);
+        public virtual int Update(string NameSoAuthor, string Suname_SoAuthor, string Middle_Name_SoAuthor, System.DateTime Birthdate, string Phone_Number, int Original_id_Soauthor, string Original_NameSoAuthor, string Original_Suname_SoAuthor, string Original_Middle_Name_SoAuthor, System.DateTime Original_Birthdate, string Original_Phone_Number) {
+            return this.Update(NameSoAuthor, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phone_Number, Original_id_Soauthor, Original_NameSoAuthor, Original_Suname_SoAuthor, Original_Middle_Name_SoAuthor, Original_Birthdate, Original_Phone_Number, Original_id_Soauthor);
         }
     }
     
@@ -5876,20 +5872,22 @@ SELECT id_Soauthor, Name, Suname_SoAuthor, Middle_Name_SoAuthor, Birthdate, Phon
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Publication_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Publication_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TypePublication] ([Publication_Type]) VALUES (@Publication_Typ" +
-                "e);\r\nSELECT id_Type_publication, Publication_Type FROM TypePublication WHERE (id" +
-                "_Type_publication = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[TypePublication] ([id_Type_publication], [Publication_Type]) V" +
+                "ALUES (@id_Type_publication, @Publication_Type);\r\nSELECT id_Type_publication, Pu" +
+                "blication_Type FROM TypePublication WHERE (id_Type_publication = @id_Type_public" +
+                "ation)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Type_publication", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Type_publication", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Publication_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Publication_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TypePublication] SET [Publication_Type] = @Publication_Type WHERE (([id_Type_publication] = @Original_id_Type_publication) AND ([Publication_Type] = @Original_Publication_Type));
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[TypePublication] SET [id_Type_publication] = @id_Type_publication, [Publication_Type] = @Publication_Type WHERE (([id_Type_publication] = @Original_id_Type_publication) AND ([Publication_Type] = @Original_Publication_Type));
 SELECT id_Type_publication, Publication_Type FROM TypePublication WHERE (id_Type_publication = @id_Type_publication)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Type_publication", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Type_publication", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Publication_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Publication_Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Type_publication", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Type_publication", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Publication_Type", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Publication_Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Type_publication", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_Type_publication", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5994,12 +5992,13 @@ SELECT id_Type_publication, Publication_Type FROM TypePublication WHERE (id_Type
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Publication_Type) {
+        public virtual int Insert(int id_Type_publication, string Publication_Type) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(id_Type_publication));
             if ((Publication_Type == null)) {
                 throw new global::System.ArgumentNullException("Publication_Type");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Publication_Type));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Publication_Type));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -6021,21 +6020,21 @@ SELECT id_Type_publication, Publication_Type FROM TypePublication WHERE (id_Type
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Publication_Type, int Original_id_Type_publication, string Original_Publication_Type, int id_Type_publication) {
+        public virtual int Update(int id_Type_publication, string Publication_Type, int Original_id_Type_publication, string Original_Publication_Type) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(id_Type_publication));
             if ((Publication_Type == null)) {
                 throw new global::System.ArgumentNullException("Publication_Type");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Publication_Type));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Publication_Type));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_id_Type_publication));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_id_Type_publication));
             if ((Original_Publication_Type == null)) {
                 throw new global::System.ArgumentNullException("Original_Publication_Type");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Publication_Type));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Publication_Type));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(id_Type_publication));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6057,7 +6056,7 @@ SELECT id_Type_publication, Publication_Type FROM TypePublication WHERE (id_Type
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Publication_Type, int Original_id_Type_publication, string Original_Publication_Type) {
-            return this.Update(Publication_Type, Original_id_Type_publication, Original_Publication_Type, Original_id_Type_publication);
+            return this.Update(Original_id_Type_publication, Publication_Type, Original_id_Type_publication, Original_Publication_Type);
         }
     }
     

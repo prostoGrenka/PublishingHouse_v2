@@ -11,7 +11,8 @@ using System.Data.SqlClient;
 using PublishingHouse.Connect;
 using System.Runtime.InteropServices;
 using PublishingHouse.Authorization;
-
+using System.Drawing.Text;
+using PublishingHouse.InfoSystem;
 
 namespace PublishingHouse
 {
@@ -24,13 +25,13 @@ namespace PublishingHouse
         }
         private void MainMenu_Load(object sender, EventArgs e)
         {
-            LoadForm();
+            LoadForTable();
         }
-        private void LoadForm()
+        private void LoadForTable()
         {
             try
             {
-                string query =
+                string queryForTable =
                     "SELECT id_P AS ID, CONCAT_WS(' ', Name_author, Suname_Author, Middle_name_author) AS Автор, " +
                     "CONCAT_WS(' ', NameSoAuthor, Suname_SoAuthor, Middle_Name_SoAuthor) AS Соавтор, " +
                     "CONCAT_WS(' ', NameReviewer, Surname, Middle_Name) AS Лицензёр," +
@@ -42,10 +43,10 @@ namespace PublishingHouse
                     "JOIN Reviewer ON Publications.id_Reviewer = Reviewer.id_Reviewer " +
                     "JOIN UDKPublications ON Publications.id_UDK_Publications = UDKPublications.id_UDK_Public";
 
-                SqlCommand myCommand = new SqlCommand(query, connect.Connection());
+                SqlCommand myCommand = new SqlCommand(queryForTable, connect.Connection());
 
-                //"."."
-                SqlDataAdapter adpt = new SqlDataAdapter(query, connect.Connection());
+
+                SqlDataAdapter adpt = new SqlDataAdapter(queryForTable, connect.Connection());
                 DataTable table = new DataTable();
 
                 adpt.Fill(table);
@@ -53,8 +54,20 @@ namespace PublishingHouse
             }
             catch (Exception ex)
             {
+                MessageBox.Show("Критическая ошибка, данные не могут быть выведеными");
                 Console.WriteLine(ex.ToString());
             }
+        }
+        private void addData_Click(object sender, EventArgs e)
+        {
+            AddData formAdd = new AddData();
+            formAdd.Show();
+            this.Hide();
+        }
+        private void searhcButton_Click(object sender, EventArgs e)
+        {
+            (publicationsDataGridView.DataSource as DataTable).DefaultView.RowFilter = string.Format("Автор like '{0}%' OR Соавтор like '{0}%' OR Лицензёр like '{0}%' OR Тип_Публикации like '{0}%' OR Регистрационный_номер like '{0}%' OR UDK like '{0}%'", searchBox.Text);
+            //Разобраться почему не работает поиск по дате и по Номеру_журнала
         }
     }
 }
